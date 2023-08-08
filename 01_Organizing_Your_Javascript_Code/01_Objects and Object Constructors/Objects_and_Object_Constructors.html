@@ -1,0 +1,38 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Objects and Object Constructors</title>
+</head>
+<body>
+    <script>
+        /* Excercise:
+            Write a constructor for making “Book” objects. 
+            We will revisit this in the project at the end of this lesson. 
+            Your book objects should have the book’s title, author, the number of pages, 
+            and whether or not you have read the book.
+        */
+       function Book(title, author, pages, read){
+            this.title = title;
+            this.author = author;
+            this.pages = pages;
+            this.read = read;
+            this.info = function(){
+                return `The ${title} by ${author}, ${pages} pages, ${read}`;
+            }
+       }
+
+       const theHobbit = new Book('Hobbit', 'J.R.R Tolkein', 295, 'not read');
+       console.log(theHobbit.info());
+       console.log(Book.prototype);
+
+       Book.prototype.sayHello = function() {
+            console.log("Hello, I'm a player!");
+        }
+
+        theHobbit.sayHello() // logs "Hello, I'm a player!"
+
+        console.log(theHobbit instanceof Book);
+    </script>
+</body>
+</html>
