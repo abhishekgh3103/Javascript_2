@@ -57,7 +57,28 @@ function HashMap(initialCapacity = 16) {
         else return false;
     }
     function length() {
-        let 
+        return Object.keys(map).length;
+    }
+
+    function clear() {
+        map = {};
+        size = 0;
+    }
+
+    function keys() {
+        return Object.keys(map);
+    }
+
+    function getValue() {
+        return Object.values(map);
+    }
+
+    function entries() {
+        let arr = []
+        for(const key in map){
+            arr.push({ key , value :map[key]});
+        }
+        return arr;
     }
 
     return {
@@ -65,7 +86,16 @@ function HashMap(initialCapacity = 16) {
         get,
         has,
         remove,
-
-
+        length,
+        clear,
+        keys,
+        getValue,
+        entries,
     }
 }
+
+const myMap = HashMap();
+myMap.set('name', 'Abhi');
+myMap.set('gender', 'Male');
+
+console.log(myMap.get('name'));
