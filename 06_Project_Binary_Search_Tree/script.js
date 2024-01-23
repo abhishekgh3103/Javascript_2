@@ -29,5 +29,25 @@ const buildTree = (data) => {
     return balancedBST(0, sortedData.length-1);
 }
 
+const prettyPrint = (node, prefix = "", isLeft = true) => {
+    if (node === null) {
+      return;
+    }
+    if (node.right !== null) {
+      prettyPrint(node.right, `${prefix}${isLeft ? "│   " : "    "}`, false);
+    }
+    console.log(`${prefix}${isLeft ? "└── " : "┌── "}${node.data}`);
+    if (node.left !== null) {
+      prettyPrint(node.left, `${prefix}${isLeft ? "    " : "│   "}`, true);
+    }
+  };
+
+
 const tree = Tree([2, 4, 0, 4, 7, 1, 9]);
+
+prettyPrint(tree.root);
 console.log(tree);
+
+const insert = (key) => {
+    root = insertRec(tree.root, key);
+}
